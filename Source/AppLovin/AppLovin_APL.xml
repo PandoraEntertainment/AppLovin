@@ -9,21 +9,20 @@
 	
 	<androidManifestUpdates>
     <addElements tag="application">
-      <meta-data android:name="applovin.sdk.key"
-       android:value= ""/> <!--Replace with your SDK key-->
+      <!--<meta-data android:name="applovin.sdk.key"
+       android:value= ""/> Replace with your SDK key-->
       
       <activity android:name="com.applovin.adview.AppLovinInterstitialActivity" />
 	    <activity android:name="com.applovin.adview.AppLovinConfirmationActivity" />
-
-      <!-- Read SDK ID from plugin project settings and add to the manifest -->
-      <!--<setStringFromProperty result="SdkId" ini="Engine" section="/Script/AppLovin.AppLovinSettings" property="SdkId" default=""/>
-      <setElement result="SdkIdMetadata" value="meta-data"/>
-      <addAttribute tag="$SdkIdMetadata" name="android:name" value="com.epicgames.ue4.AppLovin.SdkId"/>
-      <addAttribute tag="$SdkIdMetadata" name="android:value" value="$S(SdkId)"/>
-      <addElement tag="application" name="SdkIdMetadata"/>-->
-      
-      
+  
     </addElements>
+	
+	<!-- Read SDK ID from plugin project settings and add to the manifest -->
+    <setStringFromProperty result="SdkId" ini="Engine" section="/Script/AppLovin.AppLovinSettings" property="SdkId" default=""/>
+    <setElement result="SdkIdMetadata" value="meta-data"/>
+    <addAttribute tag="$SdkIdMetadata" name="android:name" value="applovin.sdk.key"/>
+    <addAttribute tag="$SdkIdMetadata" name="android:value" value="$S(SdkId)"/>
+    <addElement tag="application" name="SdkIdMetadata"/>
 
 </androidManifestUpdates>
 	
